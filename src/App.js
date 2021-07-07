@@ -8,7 +8,7 @@ import Header from './components/Header/Header.jsx';
 import ParticlesWrapper from "./components/Particles/ParticlesWrapper.jsx";
 import Feeling from "./components/Feeling/Feeling.jsx";
 import About from "./components/About/About.jsx";
-import Form from "./components/Form/Form.jsx";
+import Form from "./components/Form.jsx";
 import BarChart from './components/BarChart/BarChart.jsx';
 // import BarChart from './components/BarChart.jsx';
 
@@ -36,7 +36,69 @@ function App() {
   console.log(feelings);
   return (
     
-    <h1>hello there</h1>
+    <div className="App">
+
+      <Route path="/">
+        <Navbar />
+      </Route>
+
+      <Route path="/home">
+        <main>
+          <ParticlesWrapper />
+          <Header />
+        </main>
+      </Route>
+      
+
+      <Route path="/old">
+        <main id="table-grid">
+          <Table responsive="lg" striped bordered hover variant="dark" id="feelings-table">
+              <thead>
+                  <tr>
+                  <th>Love</th>
+                  <th>Peace</th>
+                  <th>Pride</th>
+                  <th>Joy</th>
+                  <th>Intrigue</th>
+                  <th>Trust</th>
+                  <th>Comfort</th>
+                  <th>Safety</th>
+                  <th>Relationships</th>
+                  <th>Confidence</th>
+                  <th>Actualization</th>
+                  <th>Reason</th>
+                  <th>Date</th>
+                  </tr>
+              </thead>
+              {feelings.map((feeling) => (
+                <Feeling key={feeling.id} feeling={feeling} setToggleFetch = {setToggleFetch} />
+              ))}
+              
+          </Table> 
+        </main>
+
+      </Route>
+
+      <Route path="/new">
+        <Form setToggleFetch={setToggleFetch}/>
+      </Route>
+
+      <Route path="/edit/:id">
+        <Form feelings={feelings} setToggleFetch={setToggleFetch}/>
+      </Route>
+
+      <Route path="/visualize">
+        <BarChart />
+      </Route>
+
+      <Route path="/about">
+        <About />
+      </Route>
+
+
+
+      
+    </div>
   );
 }
 
