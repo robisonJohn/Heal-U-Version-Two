@@ -42,7 +42,9 @@ function App() {
         <Navbar />
       </Route>
 
-
+      <Route path="/visualize">
+        <BarChart />
+      </Route>
 
       <Route path="/old">
         <main id="table-grid">
