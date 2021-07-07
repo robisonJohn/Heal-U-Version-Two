@@ -42,13 +42,7 @@ function App() {
         <Navbar />
       </Route>
 
-      <Route path="/home">
-        <main>
-          <ParticlesWrapper />
-          <Header />
-        </main>
-      </Route>
-      
+
 
       <Route path="/old">
         <main id="table-grid">
@@ -81,14 +75,6 @@ function App() {
 
       <Route path="/new">
         <Form setToggleFetch={setToggleFetch}/>
-      </Route>
-
-      <Route path="/edit/:id">
-        <Form feelings={feelings} setToggleFetch={setToggleFetch}/>
-      </Route>
-
-      <Route path="/visualize">
-        <BarChart />
       </Route>
 
       <Route path="/about">
