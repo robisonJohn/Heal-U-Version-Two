@@ -42,6 +42,12 @@ function App() {
         <Navbar />
       </Route>
 
+      <Route path="/home">
+        <main>
+          <Header />
+        </main>
+      </Route>
+
       <Route path="/visualize">
         <BarChart />
       </Route>
